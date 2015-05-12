@@ -29,10 +29,10 @@ class TypoScriptFrontendController extends \TYPO3\CMS\Frontend\Controller\TypoSc
 		}
 		
 		$currentPage = array_search($this->id, $uids);
-		if ($this->originalShortcutPage !== NULL && array_search($this->originalShortcutPage) < $currentPage) {
+		if ($this->originalShortcutPage !== NULL && array_search($this->originalShortcutPage, $uids) < $currentPage) {
 			$this->originalShortcutPage = NULL;
 		}
-		if ($this->originalMountPointPage !== NULL && array_search($this->originalMountPointPage) < $currentPage) {
+		if ($this->originalMountPointPage !== NULL && array_search($this->originalMountPointPage, $uids) < $currentPage) {
 			$this->originalMountPointPage = NULL;
 		}
 	}
