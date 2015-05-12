@@ -39,8 +39,8 @@ What does it do?
 
 This extension works around a bug in the TyposcriptFrontendController which
 causes redirects when a page is inaccessible, but has shortcuts or mountpoints
-in it's rootline. The bug is caused by getPageAndRootline() never unsetting
+in its rootline. The bug is caused by getPageAndRootline() never unsetting
 $originalShortcut or $originalMountpoint, even if the target page has nothing
-to do with the shortcut or mountpoint. This extension checks after getPageAndRootline
-whether the targeted page is actually above the shortcut / mountpoint pages and correctly
-unsets $originalShortcut or $originalMountpoint
+to do with the shortcut or mountpoint. This extension wraps the original getPageAndRootline()
+and checks whether the targeted page is actually above the shortcut / mountpoint pages and 
+correctly unsets $originalShortcut or $originalMountpoint.
