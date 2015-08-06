@@ -36,4 +36,16 @@ class TypoScriptFrontendController extends \TYPO3\CMS\Frontend\Controller\TypoSc
 			$this->originalMountPointPage = NULL;
 		}
 	}
+	
+	/**
+	 * We only want to handle this as a 404 if there is no alternative.
+	 * Most of the time, we want to show the login form.
+	 * If $this->TYPO3_CONF_VARS['FE']['pageNotFound_handling'] is not empty,
+	 * this is not possible without this Xclass any more
+	 */
+	public function pageNotFoundAndExit($reason = '', $header = '') {
+		if (!count($this->page)) {
+			parent::pageNotFoundAndExit($reason = '', $header = '');
+		}
+	}
 }
